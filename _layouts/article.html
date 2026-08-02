@@ -68,26 +68,20 @@ layout: default
   {% endif %}
 
   <!-- Q&A Comments -->
-  {% if site.comments.repo != "OWNER/AZ-MedMosaic" and site.comments.repo != blank %}
   <div class="qa-section">
     <h2>Questions &amp; Discussion</h2>
-    <p class="qa-subtitle">Have a question about this article? Leave a comment below.</p>
-    <script
-      src="https://utteranc.es/client.js"
-      repo="{{ site.comments.repo }}"
-      issue-term="pathname"
-      label="💬 question"
-      theme="github-light"
-      crossorigin="anonymous"
-      async>
-    </script>
+    <p class="qa-subtitle">Have a question about this article? Ask below — no sign-in required.</p>
+    <form action="https://formspree.io/f/{{ site.formspree_id }}" method="POST" class="qa-form">
+      <input type="hidden" name="_subject" value="Question on: {{ page.title }}">
+      <input type="hidden" name="article" value="{{ page.title }}">
+      <div class="form-row">
+        <input type="text" name="name" placeholder="Your name (optional)" class="form-input">
+        <input type="email" name="email" placeholder="Email (optional, for reply)" class="form-input">
+      </div>
+      <textarea name="message" placeholder="Type your question or comment here..." required class="form-textarea"></textarea>
+      <button type="submit" class="form-submit">Send Question</button>
+    </form>
   </div>
-  {% else %}
-  <div class="qa-section">
-    <h2>Questions &amp; Discussion</h2>
-    <p class="qa-subtitle">Comments will appear here once the site owner installs the <a href="https://utteranc.es">Utterances app</a> on GitHub.</p>
-  </div>
-  {% endif %}
 
 </div>
 

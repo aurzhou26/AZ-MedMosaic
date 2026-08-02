@@ -1,0 +1,49 @@
+---
+layout: default
+title: Ask a Question
+permalink: /questions
+description: Have a question about science, health, or anything we cover? Ask here — no sign-in required.
+---
+
+<section class="questions-hero">
+  <div class="container">
+    <h1>Ask a Question</h1>
+    <p>Curious about something? Ask anything related to biology, medicine, chemistry, health, or the human body. No sign-in required.</p>
+  </div>
+</section>
+
+<div class="questions-body">
+  <div class="container">
+
+    <form action="https://formspree.io/f/{{ site.formspree_id }}" method="POST" class="qa-form qa-form-standalone">
+      <input type="hidden" name="_subject" value="General Question from MedMosaic">
+
+      <label for="q-name">Your name <span class="optional">(optional)</span></label>
+      <input type="text" id="q-name" name="name" placeholder="e.g. Alex" class="form-input">
+
+      <label for="q-email">Email <span class="optional">(optional — only if you'd like a reply)</span></label>
+      <input type="email" id="q-email" name="email" placeholder="you@example.com" class="form-input">
+
+      <label for="q-topic">Topic <span class="optional">(optional)</span></label>
+      <select id="q-topic" name="topic" class="form-input">
+        <option value="">— Choose a topic —</option>
+        <option value="Biology">Biology</option>
+        <option value="Medicine">Medicine</option>
+        <option value="First Aid">First Aid</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="Health & Body">Health & Body</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="q-message">Your question or comment <span class="required">*</span></label>
+      <textarea id="q-message" name="message" placeholder="Type your question here..." required class="form-textarea"></textarea>
+
+      <button type="submit" class="form-submit">Send Question</button>
+    </form>
+
+    <div class="questions-note">
+      <p><strong>Note:</strong> We read every message. If you leave your email, we may respond directly or address your question in a future article.</p>
+    </div>
+
+  </div>
+</div>

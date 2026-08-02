@@ -44,9 +44,9 @@ defaults:
     values:
       layout: "default"
 
-# Comments (Utterances) — readers can ask questions on articles
-comments:
-  repo: "aurzhou26/AZ-MedMosaic"
+# Contact form (Formspree) — readers can ask questions without sign-in
+# Get your free form ID at https://formspree.io (sign up → create form → copy ID)
+formspree_id: "YOUR_FORM_ID"
 
 # Exclude files from the built site
 exclude:

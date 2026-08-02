@@ -26,6 +26,7 @@
         <ul class="nav-links">
           <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' or page.url == '/index.html' %}class="active"{% endif %}>Home</a></li>
           <li><a href="{{ '/search' | relative_url }}" {% if page.url == '/search' or page.url == '/search.html' %}class="active"{% endif %}>Browse</a></li>
+          <li><a href="{{ '/questions' | relative_url }}" {% if page.url == '/questions' or page.url == '/questions.html' %}class="active"{% endif %}>Ask</a></li>
           <li><a href="{{ '/about' | relative_url }}" {% if page.url == '/about' or page.url == '/about.html' %}class="active"{% endif %}>About</a></li>
         </ul>
         <a href="{{ '/search' | relative_url }}" class="nav-search-btn" aria-label="Search">
