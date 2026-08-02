@@ -2,6 +2,7 @@
 title: "Why Can Two People With Similar Neurological Injuries Have Completely Different Outcomes?"
 date: 2026-08-02
 category: Medicine
+emoji: "🧠"
 description: >
   Two people experience the same stroke, yet one returns to work while the other struggles to walk. The answer lies in neuroplasticity, cognitive reserve, genetics, and the fact that no two brains are truly alike.
 disclaimer: true

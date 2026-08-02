@@ -2,6 +2,7 @@
 title: "Why Does Your Nose Run After Eating Spicy Food?"
 date: 2026-08-02
 category: Biology
+emoji: "🌶️"
 description: >
   Halfway into a bowl of spicy ramen, your nose starts running — but you're perfectly fine. Learn how capsaicin tricks your nervous system and triggers a protective reflex called gustatory rhinitis.
 disclaimer: false

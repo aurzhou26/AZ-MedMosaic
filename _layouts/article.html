@@ -4,16 +4,23 @@ layout: default
 
 <div class="article-layout">
 
+  {% if page.image %}
+  <div class="article-hero-image">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+  </div>
+  {% endif %}
+
   <!-- Breadcrumb + Header -->
   <header class="article-header">
     <p class="breadcrumb">
       <a href="{{ '/' | relative_url }}">Home</a> /
+      {% assign cat_slug = page.category | downcase | replace: ' ', '-' %}
       <a href="{{ '/search' | relative_url }}?q={{ page.category | url_encode }}">{{ page.category }}</a> /
       {{ page.title | truncatewords: 5 }}
     </p>
 
     <div class="article-meta">
-      <a href="{{ '/search' | relative_url }}?q={{ page.category | url_encode }}" class="tag">{{ page.category }}</a>
+      <a href="{{ '/search' | relative_url }}?q={{ page.category | url_encode }}" class="tag tag-{{ cat_slug }}">{{ page.category }}</a>
       <span class="article-meta-sep">·</span>
       <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %-d, %Y" }}</time>
       <span class="article-meta-sep">·</span>

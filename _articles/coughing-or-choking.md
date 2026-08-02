@@ -2,6 +2,7 @@
 title: "Coughing or Choking: How Can You Tell?"
 date: 2026-08-02
 category: First Aid
+emoji: "🩺"
 description: >
   Coughing strongly often means air is still moving through the windpipe — but that doesn't guarantee nothing is stuck. Learn how to tell the difference and what to do.
 disclaimer: true

@@ -16,7 +16,7 @@ title: Home
 </section>
 
 <!-- Articles -->
-<section class="section">
+<section class="section section-articles">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">Latest Articles</h2>
@@ -25,10 +25,20 @@ title: Home
     <div class="cards-grid">
 
       {% for article in site.articles reversed %}
+      {% assign cat_slug = article.category | downcase | replace: ' ', '-' %}
       <article class="card">
+        {% if article.image %}
+        <div class="card-image">
+          <img src="{{ article.image | relative_url }}" alt="{{ article.title }}" loading="lazy">
+        </div>
+        {% elsif article.emoji %}
+        <div class="card-image">
+          <span class="card-image-emoji">{{ article.emoji }}</span>
+        </div>
+        {% endif %}
         <div class="card-body">
           <div class="card-meta">
-            <span class="tag">{{ article.category }}</span>
+            <span class="tag tag-{{ cat_slug }}">{{ article.category }}</span>
             <span>{{ article.date | date: "%b %-d, %Y" }}</span>
             <span>·</span>
             <span>{{ article.content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
@@ -39,7 +49,7 @@ title: Home
           <p class="card-excerpt">{{ article.description | default: article.excerpt | strip_html | truncatewords: 30 }}</p>
         </div>
         <div class="card-footer">
-          <div></div>
+          <span class="tag tag-{{ cat_slug }}">{{ article.category }}</span>
           <a href="{{ article.url | relative_url }}" class="read-more">Read article →</a>
         </div>
       </article>
@@ -59,7 +69,7 @@ title: Home
 </section>
 
 <!-- Topics -->
-<section class="section" style="padding-top:0;">
+<section class="section section-topics">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">Topics</h2>
@@ -67,17 +77,18 @@ title: Home
     <div style="display:flex; flex-wrap:wrap; gap:0.6rem;">
       {% assign categories = site.articles | map: "category" | uniq %}
       {% for cat in categories %}
-      <a href="{{ '/search' | relative_url }}?q={{ cat | url_encode }}" class="tag">{{ cat }}</a>
+      {% assign cat_slug = cat | downcase | replace: ' ', '-' %}
+      <a href="{{ '/search' | relative_url }}?q={{ cat | url_encode }}" class="tag tag-{{ cat_slug }}">{{ cat }}</a>
       {% endfor %}
     </div>
   </div>
 </section>
 
 <!-- Mission -->
-<section class="section" style="background: var(--primary-light); padding: 2.5rem 0; margin: 1rem 0;">
+<section class="section section-mission" style="padding: 3rem 0;">
   <div class="container" style="max-width: 680px; text-align: center;">
-    <h2 style="font-size:1.2rem; font-weight:700; margin-bottom:0.5rem;">Our Mission</h2>
-    <p style="color: var(--text-muted); line-height:1.75;">
+    <h2 style="font-size:1.2rem; font-weight:700; margin-bottom:0.75rem; color: var(--primary-dark);">Our Mission</h2>
+    <p style="color: var(--text-muted); line-height:1.75; font-size: 1.05rem;">
       {{ site.description }}
     </p>
     <a href="{{ '/about' | relative_url }}" class="btn" style="margin-top:1.25rem; display:inline-block;">Learn more about us</a>
