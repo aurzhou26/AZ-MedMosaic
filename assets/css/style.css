@@ -492,7 +492,7 @@ img { max-width: 100%; display: block; }
 }
 .qa-form .form-textarea {
   width: 100%;
-  min-height: 120px;
+  min-height: 200px;
   padding: 0.75rem 0.9rem;
   border: 1.5px solid #e0e0e0;
   border-radius: var(--radius);
@@ -548,7 +548,7 @@ img { max-width: 100%; display: block; }
 .qa-form-standalone .required { color: var(--accent); }
 .qa-form-standalone .form-input,
 .qa-form-standalone .form-textarea { margin-bottom: 0; margin-top: 0.25rem; }
-.qa-form-standalone .form-textarea { min-height: 150px; margin-top: 0.25rem; }
+.qa-form-standalone .form-textarea { min-height: 250px; margin-top: 0.25rem; }
 .qa-form-standalone .form-submit { margin-top: 1.25rem; }
 .questions-note {
   max-width: 600px;
