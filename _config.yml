@@ -1,0 +1,61 @@
+# ==========================================
+# MedMosaic — Site Configuration
+# ==========================================
+# This is the ONLY configuration file you ever need to touch.
+# After editing, push to GitHub and the site rebuilds automatically.
+
+title: MedMosaic
+description: >-
+  A student-created space where human sciences, biology, medicine,
+  chemistry, and compassion come together.
+
+# CHANGE THIS to your GitHub Pages URL after enabling Pages:
+url: ""
+baseurl: "/AZ-MedMosaic"
+
+# Theme
+remote_theme: pages-themes/cayman@v0.2.0
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+  toc_levels: "2..3"
+
+# Plugins (all supported by GitHub Pages — no local install needed)
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections: articles live in _articles/ folder
+collections:
+  articles:
+    output: true
+    permalink: /articles/:slug/
+
+# Defaults — so you don't have to repeat layout in every file
+defaults:
+  - scope:
+      path: ""
+      type: "articles"
+    values:
+      layout: "article"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# Comments (Utterances) — readers can ask questions on articles
+comments:
+  repo: "aurzhou26/AZ-MedMosaic"
+
+# Exclude files from the built site
+exclude:
+  - README.md
+  - CONTRIBUTING.md
+  - Gemfile
+  - Gemfile.lock
+  - "*.md~"

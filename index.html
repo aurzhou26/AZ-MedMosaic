@@ -1,0 +1,85 @@
+---
+layout: default
+title: Home
+---
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1>Where Science Meets <em>You</em></h1>
+    <p>Human sciences, biology, medicine, and chemistry — explained clearly, with care, by students for everyone.</p>
+    <form class="hero-search" role="search" action="{{ '/search' | relative_url }}">
+      <input type="search" name="q" placeholder="Search articles…" aria-label="Search articles">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+</section>
+
+<!-- Articles -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Latest Articles</h2>
+      <a href="{{ '/search' | relative_url }}" class="section-link">View all →</a>
+    </div>
+    <div class="cards-grid">
+
+      {% for article in site.articles reversed %}
+      <article class="card">
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="tag">{{ article.category }}</span>
+            <span>{{ article.date | date: "%b %-d, %Y" }}</span>
+            <span>·</span>
+            <span>{{ article.content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+          </div>
+          <h3 class="card-title">
+            <a href="{{ article.url | relative_url }}">{{ article.title }}</a>
+          </h3>
+          <p class="card-excerpt">{{ article.description | default: article.excerpt | strip_html | truncatewords: 30 }}</p>
+        </div>
+        <div class="card-footer">
+          <div></div>
+          <a href="{{ article.url | relative_url }}" class="read-more">Read article →</a>
+        </div>
+      </article>
+      {% endfor %}
+
+      <!-- Placeholder card -->
+      <article class="card card-placeholder">
+        <div class="card-body" style="align-items:center; justify-content:center; text-align:center; gap:0.75rem;">
+          <div style="font-size:2.5rem; opacity:0.25;">✦</div>
+          <p class="text-muted" style="font-size:0.9rem;">More articles coming soon.<br>Contributions welcome!</p>
+          <a href="{{ '/about' | relative_url }}#contributing" class="btn btn-outline" style="margin-top:0.5rem; font-size:0.85rem; padding:0.5rem 1.1rem;">Learn how to contribute</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Topics -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Topics</h2>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:0.6rem;">
+      {% assign categories = site.articles | map: "category" | uniq %}
+      {% for cat in categories %}
+      <a href="{{ '/search' | relative_url }}?q={{ cat | url_encode }}" class="tag">{{ cat }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Mission -->
+<section class="section" style="background: var(--primary-light); padding: 2.5rem 0; margin: 1rem 0;">
+  <div class="container" style="max-width: 680px; text-align: center;">
+    <h2 style="font-size:1.2rem; font-weight:700; margin-bottom:0.5rem;">Our Mission</h2>
+    <p style="color: var(--text-muted); line-height:1.75;">
+      {{ site.description }}
+    </p>
+    <a href="{{ '/about' | relative_url }}" class="btn" style="margin-top:1.25rem; display:inline-block;">Learn more about us</a>
+  </div>
+</section>

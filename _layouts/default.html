@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description | strip_html | truncatewords: 50 }}">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Site stylesheet -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+  {% seo %}
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav-inner">
+        <a href="{{ '/' | relative_url }}" class="site-logo">Med<span>Mosaic</span></a>
+        <ul class="nav-links">
+          <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' or page.url == '/index.html' %}class="active"{% endif %}>Home</a></li>
+          <li><a href="{{ '/search' | relative_url }}" {% if page.url == '/search' or page.url == '/search.html' %}class="active"{% endif %}>Browse</a></li>
+          <li><a href="{{ '/about' | relative_url }}" {% if page.url == '/about' or page.url == '/about.html' %}class="active"{% endif %}>About</a></li>
+        </ul>
+        <a href="{{ '/search' | relative_url }}" class="nav-search-btn" aria-label="Search">
+          <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="9" r="6"/><line x1="13.5" y1="13.5" x2="18" y2="18"/></svg>
+          Search
+        </a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    {{ content }}
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="{{ '/' | relative_url }}" class="site-logo">Med<span>Mosaic</span></a>
+          <p>{{ site.description }}</p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="{{ '/' | relative_url }}">Home</a></li>
+            <li><a href="{{ '/search' | relative_url }}">All Articles</a></li>
+            <li><a href="{{ '/about' | relative_url }}">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Topics</h4>
+          <ul>
+            {% assign categories = site.articles | map: "category" | uniq %}
+            {% for cat in categories %}
+            <li><a href="{{ '/search' | relative_url }}?q={{ cat | url_encode }}">{{ cat }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; {{ 'now' | date: '%Y' }} MedMosaic. Created by students for everyone. Content is for educational purposes only — not a substitute for professional medical advice.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

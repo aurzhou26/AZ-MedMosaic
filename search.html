@@ -1,0 +1,76 @@
+---
+layout: default
+title: Search
+permalink: /search
+description: Search all MedMosaic articles.
+---
+
+<section class="section">
+  <div class="container" style="max-width: 780px;">
+
+    <h1 style="font-size:1.6rem; font-weight:800; margin-bottom:1.5rem;">Browse &amp; Search Articles</h1>
+
+    <!-- Search box -->
+    <div class="search-box-wrap" role="search">
+      <label for="search-input" class="sr-only">Search articles</label>
+      <input type="search" id="search-input" class="search-input" placeholder="Search by keyword, topic, or condition…" autocomplete="off" spellcheck="false">
+    </div>
+
+    <!-- Results rendered by JS -->
+    <div id="results-count" class="search-results-count" aria-live="polite"></div>
+    <div id="search-results" aria-live="polite"></div>
+
+    <!-- All articles (visible by default, hidden when searching) -->
+    <div id="all-articles">
+      {% assign sorted = site.articles | sort: "date" | reverse %}
+      {% for article in sorted %}
+      <div class="search-result-item" data-title="{{ article.title | downcase }}" data-body="{{ article.description | downcase }} {{ article.category | downcase }} {{ article.content | strip_html | truncatewords: 80 | downcase }}">
+        <div class="search-result-title">
+          <a href="{{ article.url | relative_url }}">{{ article.title }}</a>
+        </div>
+        <div class="article-meta" style="margin-bottom:0.4rem;font-size:0.78rem;">
+          <span class="tag">{{ article.category }}</span>
+          <span class="text-muted">{{ article.date | date: "%b %-d, %Y" }}</span>
+          <span class="text-muted">· {{ article.content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+        </div>
+        <div class="search-result-excerpt">
+          {{ article.description | default: article.excerpt | strip_html | truncatewords: 35 }}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<!-- Simple client-side filter (no libraries needed) -->
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var items = document.querySelectorAll('#all-articles .search-result-item');
+  var countEl = document.getElementById('results-count');
+
+  // Pre-fill from URL
+  var params = new URLSearchParams(window.location.search);
+  var q = params.get('q');
+  if (q) { input.value = q; filter(q); }
+
+  input.addEventListener('input', function(){ filter(input.value); });
+
+  function filter(query) {
+    var terms = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
+    var visible = 0;
+    items.forEach(function(item){
+      var text = item.getAttribute('data-title') + ' ' + item.getAttribute('data-body');
+      var match = terms.length === 0 || terms.every(function(t){ return text.indexOf(t) !== -1; });
+      item.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+    if (terms.length > 0) {
+      countEl.textContent = visible + ' result' + (visible !== 1 ? 's' : '');
+    } else {
+      countEl.textContent = '';
+    }
+  }
+})();
+</script>
