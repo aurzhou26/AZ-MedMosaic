@@ -12,15 +12,15 @@ description: Learn about MedMosaic — who we are, what we do, and how you can c
   </div>
 </section>
 
-<div class="about-body">
+<div class="about-body" markdown="1">
 
-<h2>Our Mission</h2>
+## Our Mission
 
 MedMosaic exists to make the sciences more understandable, meaningful, approachable, and human. We explore clear explanations, fascinating facts, medical processes, personal learning experiences, and creative projects — all designed for curious minds at any level.
 
-Science can feel distant and intimidating. We believe that when students explain science to other students — using plain language, real curiosity, and genuine care — something clicks that textbooks alone cannot always achieve.
+Science can feel distant and intimidating. We believe that when student explain science to other student — using plain language, real curiosity, and genuine care — something clicks that textbooks alone cannot always achieve.
 
-<h2>What You Will Find Here</h2>
+## What You Will Find Here
 
 - **Clear explainers** on biology, medicine, anatomy, chemistry, and health.
 - **First-aid awareness** articles grounded in current clinical guidance.
@@ -28,13 +28,13 @@ Science can feel distant and intimidating. We believe that when students explain
 - **Personal learning stories** — what it is really like to study these subjects.
 - **Creative projects** that connect science to everyday life.
 
-<h2>A Note on Medical Content</h2>
+## A Note on Medical Content
 
 All articles are written for **educational and awareness purposes only**. They are not a substitute for professional medical advice, diagnosis, or treatment. Always seek the guidance of a qualified healthcare provider with questions you may have regarding a medical condition or emergency.
 
 Where first-aid guidance is discussed, we reference current official sources such as the American Heart Association, the American Red Cross, the NHS, and MedlinePlus. Sources are always listed at the bottom of each article.
 
-<h2 id="contributing">Contributing to MedMosaic</h2>
+## Contributing to MedMosaic
 
 MedMosaic is an open, growing project. Adding a new article takes just a few minutes:
 
@@ -45,7 +45,7 @@ MedMosaic is an open, growing project. Adding a new article takes just a few min
 
 No HTML, no CSS, no programming required. See the [full contributing guide](https://github.com/aurzhou26/AZ-MedMosaic/blob/main/README.md#how-to-add-a-new-article-directly-on-github--no-downloads-needed) for details.
 
-<h2>Questions &amp; Feedback</h2>
+## Questions & Feedback
 
 Each article has a built-in discussion section. You can ask questions, flag inaccuracies, or share thoughts directly on any article page. We read every comment.
 
