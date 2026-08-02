@@ -13,9 +13,6 @@ description: >-
 url: ""
 baseurl: "/AZ-MedMosaic"
 
-# Theme
-remote_theme: pages-themes/cayman@v0.2.0
-
 # Build settings
 markdown: kramdown
 kramdown:
@@ -25,7 +22,6 @@ kramdown:
 
 # Plugins (all supported by GitHub Pages — no local install needed)
 plugins:
-  - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-sitemap
 
