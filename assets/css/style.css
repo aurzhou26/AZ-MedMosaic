@@ -42,7 +42,7 @@
   --max-w:         1100px;
   --article-w:     740px;
   --font-sans:     'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-serif:    'Merriweather', Georgia, 'Times New Roman', serif;
+  --font-serif:    'Segoe UI', Calibri, 'Inter', system-ui, sans-serif;
   --transition:    0.25s ease;
 }
 
@@ -534,28 +534,20 @@ img { max-width: 100%; display: block; }
 .questions-hero h1 { font-size: 2rem; color: #6d28d9; margin-bottom: 0.5rem; }
 .questions-hero p { color: var(--text-muted); max-width: 560px; margin: 0 auto; }
 .questions-body { padding: 2.5rem 1rem; }
-.qa-form-standalone { max-width: 600px; margin: 0 auto; }
-.qa-form-standalone label {
-  display: block;
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin-bottom: 0.3rem;
-  margin-top: 1rem;
-  color: var(--text-color);
+.questions-card {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow);
 }
-.qa-form-standalone label:first-of-type { margin-top: 0; }
-.qa-form-standalone .optional { font-weight: 400; color: var(--text-muted); font-size: 0.8rem; }
-.qa-form-standalone .required { color: var(--accent); }
-.qa-form-standalone .form-input,
-.qa-form-standalone .form-textarea { margin-bottom: 0; margin-top: 0.25rem; }
-.qa-form-standalone .form-textarea { min-height: 250px; margin-top: 0.25rem; }
-.qa-form-standalone .form-submit { margin-top: 1.25rem; }
+.questions-card p { margin-bottom: 1.25rem; line-height: 1.7; }
+.questions-card .btn-large { font-size: 1.05rem; padding: 0.85rem 2rem; display: inline-block; }
 .questions-note {
-  max-width: 600px;
-  margin: 1.5rem auto 0;
-  padding: 1rem;
-  background: var(--section-emerald);
-  border-radius: var(--radius);
+  margin-top: 1.5rem;
   font-size: 0.85rem;
   color: var(--text-muted);
 }

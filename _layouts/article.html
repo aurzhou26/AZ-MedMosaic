@@ -71,16 +71,7 @@ layout: default
   <div class="qa-section">
     <h2>Questions &amp; Discussion</h2>
     <p class="qa-subtitle">Have a question about this article? Ask below — no sign-in required.</p>
-    <form action="https://formspree.io/f/{{ site.formspree_id }}" method="POST" class="qa-form">
-      <input type="hidden" name="_subject" value="Question on: {{ page.title }}">
-      <input type="hidden" name="article" value="{{ page.title }}">
-      <div class="form-row">
-        <input type="text" name="name" placeholder="Your name (optional)" class="form-input">
-        <input type="email" name="email" placeholder="Email (optional, for reply)" class="form-input">
-      </div>
-      <textarea name="message" placeholder="Type your question or comment here..." required class="form-textarea"></textarea>
-      <button type="submit" class="form-submit">Send Question</button>
-    </form>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfyhNZaASKUWjUxKV7WZK_p7qOivr9y9AkNiNz2PFR5yJGFMg/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">Loading…</iframe>
   </div>
 
 </div>
