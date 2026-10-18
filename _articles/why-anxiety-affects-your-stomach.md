@@ -2,6 +2,7 @@
 title: "Why Do You Feel Anxiety in Your Stomach?"
 date: 2026-10-18
 category: Mental Health
+emoji: "🦋"
 description: >
   Anxiety can cause butterflies, nausea, cramps, and bathroom urgency. The gut-brain axis explains how your nervous system, stress hormones, and digestive tract turn emotional stress into real physical sensations.
 disclaimer: true
